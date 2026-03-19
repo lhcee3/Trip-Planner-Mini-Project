@@ -38,7 +38,7 @@ function PlacesToVisit({ trip }) {
               )}
 
               {/* Places */}
-              <div className="ml-4 pl-8 border-l-2 border-gray-100 flex flex-col gap-4">
+              <div className="ml-2 md:ml-4 pl-6 md:pl-8 border-l-2 border-gray-100 flex flex-col gap-4">
                 {places.map((place, i) => (
                   <div key={i}>
                     {(place.time || place.best_time) && (

@@ -58,7 +58,7 @@ function MyTrips() {
         </div>
 
         {loading ? (
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
             {[...Array(6)].map((_, i) => (
               <div key={i} className="h-[220px] rounded-2xl bg-gray-200 animate-pulse" />
             ))}
@@ -77,7 +77,7 @@ function MyTrips() {
             </button>
           </div>
         ) : (
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
             {userTrips.map((trip, i) => (
               <UserTripCardItem key={i} trip={trip} onDelete={handleDelete} />
             ))}

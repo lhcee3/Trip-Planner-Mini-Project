@@ -218,7 +218,7 @@ function CreateTrip() {
             <FiDollarSign className="text-gray-400" size={16} />
             <span className="text-xs font-semibold text-gray-400 uppercase tracking-widest">Budget</span>
           </div>
-          <div className="grid grid-cols-3 gap-3">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
             {SelectBudgetOptions.map((item) => (
               <button
                 key={item.title}

@@ -7,7 +7,7 @@ function InfoSection({ trip }) {
 
   return (
     <div>
-      <div className="relative h-[320px] w-full rounded-2xl overflow-hidden flex flex-col justify-end p-7">
+      <div className="relative h-[220px] md:h-[320px] w-full rounded-2xl overflow-hidden flex flex-col justify-end p-5 md:p-7">
         <img
           src={`https://picsum.photos/seed/${encodeURIComponent(destination)}/1200/500`}
           alt={destination}

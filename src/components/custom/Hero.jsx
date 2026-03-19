@@ -91,21 +91,21 @@ export default function Hero() {
         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-black/10" />
 
         {/* Floating nav */}
-        <div className="absolute top-0 left-0 right-0 z-30 flex justify-between items-center px-8 md:px-20 py-5">
+        <div className="absolute top-0 left-0 right-0 z-30 flex justify-between items-center px-5 md:px-20 py-4">
           <a href="/">
-            <img src="/logo.svg" alt="Logo" className="h-7 brightness-0 invert" />
+            <img src="/logo.svg" alt="Logo" className="h-6 md:h-7 brightness-0 invert" />
           </a>
-          <div className="flex items-center gap-4">
-            <Link to="/my-trips" className="text-sm text-white font-medium drop-shadow-[0_1px_3px_rgba(0,0,0,0.8)] hover:text-white/80 transition-colors">My Trips</Link>
+          <div className="flex items-center gap-2 md:gap-4">
+            <Link to="/my-trips" className="hidden sm:block text-sm text-white font-medium drop-shadow-[0_1px_3px_rgba(0,0,0,0.8)] hover:text-white/80 transition-colors">My Trips</Link>
             <Link to="/create-trip">
-              <button className="text-sm text-white bg-black/60 border border-white/30 px-4 py-2 rounded-[10px] hover:bg-black/80 transition-all backdrop-blur-sm">
+              <button className="text-xs md:text-sm text-white bg-black/60 border border-white/30 px-3 md:px-4 py-1.5 md:py-2 rounded-[10px] hover:bg-black/80 transition-all backdrop-blur-sm">
                 + Create Trip
               </button>
             </Link>
             {!user && (
               <button
                 onClick={() => setOpenDialog(true)}
-                className="text-sm text-white bg-black/60 border border-white/30 px-4 py-2 rounded-[10px] hover:bg-black/80 transition-all backdrop-blur-sm"
+                className="text-xs md:text-sm text-white bg-black/60 border border-white/30 px-3 md:px-4 py-1.5 md:py-2 rounded-[10px] hover:bg-black/80 transition-all backdrop-blur-sm"
               >
                 Sign In
               </button>
@@ -125,11 +125,11 @@ export default function Hero() {
         </div>
 
         {/* Content */}
-        <div className="relative z-10 h-full flex flex-col justify-end pb-20 px-8 md:px-20 max-w-5xl mx-auto">
+        <div className="relative z-10 h-full flex flex-col justify-end pb-16 md:pb-20 px-5 md:px-20 max-w-5xl mx-auto">
 
           {/* Location pill */}
           <div
-            className="flex items-center gap-2 mb-4 transition-opacity duration-500"
+            className="flex items-center gap-2 mb-3 md:mb-4 transition-opacity duration-500"
             style={{ opacity: fading ? 0 : 1 }}
           >
             <span className="text-xs font-semibold uppercase tracking-widest text-white/50">Now showing</span>
@@ -139,23 +139,23 @@ export default function Hero() {
           </div>
 
           {/* Heading */}
-          <h1 className="text-5xl md:text-7xl font-black text-white leading-none tracking-tight mb-4">
+          <h1 className="text-4xl md:text-7xl font-black text-white leading-none tracking-tight mb-3 md:mb-4">
             Your next trip,<br />
             <span className="text-white/40">planned by AI.</span>
           </h1>
 
-          <p className="text-base text-white/60 max-w-md mb-8 leading-relaxed">
+          <p className="text-sm md:text-base text-white/60 max-w-md mb-6 md:mb-8 leading-relaxed">
             Tell us where you want to go. We'll handle the hotels, itinerary, and everything in between.
           </p>
 
-          <div className="flex flex-wrap items-center gap-4">
+          <div className="flex flex-wrap items-center gap-3">
             <Link to="/create-trip">
-              <button className="btn-shimmer flex items-center gap-2 bg-white text-gray-900 px-7 py-3.5 rounded-[10px] text-sm font-bold hover:shadow-[0_0_24px_rgba(255,255,255,0.3)] transition-all">
+              <button className="btn-shimmer flex items-center gap-2 bg-white text-gray-900 px-5 md:px-7 py-3 md:py-3.5 rounded-[10px] text-sm font-bold hover:shadow-[0_0_24px_rgba(255,255,255,0.3)] transition-all">
                 Start Planning <FiArrowRight size={15} />
               </button>
             </Link>
             <Link to="/my-trips">
-              <button className="text-sm text-white/70 hover:text-white border border-white/20 px-6 py-3.5 rounded-[10px] hover:bg-white/10 transition-all">
+              <button className="text-sm text-white/70 hover:text-white border border-white/20 px-5 md:px-6 py-3 md:py-3.5 rounded-[10px] hover:bg-white/10 transition-all">
                 View My Trips
               </button>
             </Link>
@@ -175,7 +175,7 @@ export default function Hero() {
 
       {/* ── FEATURES STRIP ── */}
       <section className="features-border-top bg-white py-7 px-5">
-        <div className="max-w-3xl mx-auto grid grid-cols-3 gap-6 text-center">
+        <div className="max-w-3xl mx-auto grid grid-cols-1 sm:grid-cols-3 gap-4 text-center">
           {[
             ['Free to use', 'No credit card required'],
             ['AI-generated', 'Powered by Groq LLaMA'],
