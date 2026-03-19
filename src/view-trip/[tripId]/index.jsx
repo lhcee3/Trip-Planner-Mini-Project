@@ -9,46 +9,48 @@ import PlacesToVisit from '../components/PlacesToVisit';
 import Footer from '../components/Footer';
 
 function Viewtrip() {
-    const { tripId } = useParams();
-    const [trip, setTrip] = useState([])
+  const { tripId } = useParams();
+  const [trip, setTrip] = useState({});
+  const [loading, setLoading] = useState(true);
 
-    useEffect(() => {
-        tripId && GetTripData()
-    }, [tripId])
+  useEffect(() => {
+    if (tripId) GetTripData();
+  }, [tripId]);
 
-    // used to get trip info from firebase
-    const GetTripData = async () => {
-        const docRef = doc(db, 'AITrips', tripId);
-        const docSnap = await getDoc(docRef)
-
-        if (docSnap.exists()) {
-            console.log("Document: ", docSnap.data())
-            setTrip(docSnap.data());
-        }
-
-        else {
-            console.log("No such document")
-            toast("No trip found")
-        }
-
+  const GetTripData = async () => {
+    try {
+      const docRef = doc(db, 'AITrips', tripId);
+      const docSnap = await getDoc(docRef);
+      if (docSnap.exists()) {
+        setTrip(docSnap.data());
+      } else {
+        toast('No trip found');
+      }
+    } catch (e) {
+      toast('Failed to load trip');
+    } finally {
+      setLoading(false);
     }
+  };
 
+  if (loading) {
     return (
-        <div className='p-10 md:px-20 lg:px-44 xl:px-56'>
-            {/* Information Section */}
-            <InfoSection trip={trip} />
+      <div className="min-h-screen bg-[#f8f9fb] flex items-center justify-center">
+        <div className="text-sm text-gray-400">Loading your trip...</div>
+      </div>
+    );
+  }
 
-            {/* Recommended Hotels */}
-            <Hotels trip={trip} />
-
-            {/* Daily Plan */}
-            <PlacesToVisit trip={trip} />
-
-            {/* Footer */}
-            <Footer trip={trip} />
-
-        </div>
-    )
+  return (
+    <div className="min-h-screen bg-[#f8f9fb]">
+      <div className="max-w-4xl mx-auto px-5 py-10">
+        <InfoSection trip={trip} />
+        <Hotels trip={trip} />
+        <PlacesToVisit trip={trip} />
+        <Footer />
+      </div>
+    </div>
+  );
 }
 
 export default Viewtrip

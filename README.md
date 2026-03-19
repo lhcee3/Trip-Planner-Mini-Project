@@ -1,47 +1,87 @@
-                  
-<h1 align="center" style="font-weight: bold;">Full-Stack Trip Planner Web App</h1>
+<h1 align="center" style="font-weight: bold;">AI Trip Planner</h1>
 
 <p align="center">
-<a href="#tech">Technologies |</a>
-<a href="#features">Features |</a>
-<a href="#pre">Prerequisites</a>
- 
+<a href="#tech">Technologies</a> |
+<a href="#features">Features</a> |
+<a href="#pre">Prerequisites</a> |
+<a href="#setup">Setup</a>
 </p>
 
-<p align="center">A full-stack web application that helps users plan their trips by providing AI-powered recommendations for travel itineraries, places to visit, and hotels. This app integrates Google Generative AI for dynamic travel planning, Firebase for data storage, and Google Places API for fetching detailed information about places and hotels. </p>
-
+<p align="center">A full-stack web app that generates AI-powered travel itineraries with hotel recommendations and daily plans. Built with React, powered by Groq LLaMA AI, and backed by Firebase.</p>
 
 <h3 align="center">
-<a href="https://ai-planner-459706.web.app/" target="_blank">📱 Visit this Project</a>
-</h3> <br>
+<a href="https://github.com/lhcee3/Trip-Planner-Mini-Project" target="_blank">Live Demo</a>
+</h3>
 
-<h2 id="technologies">💻 Technologies</h2>
+<br>
 
-<b><em>Frontend:</b></em>
+<h2 id="tech">Technologies</h2>
 
-- React: For building the user interface and handling frontend logic.
-- TailwindCSS: For styling and responsive design.
-- Axios: For making HTTP requests to external APIs.
+**Frontend:**
+- React 18 + Vite
+- TailwindCSS
+- React Router DOM
+- Lucide React / React Icons
 
-<b><em>Backend & Services:</b></em>
-- Google Generative AI API: For generating AI-powered travel recommendations and itineraries.
-- Google Places API: For retrieving detailed information about places, hotels, and their photos.
-- Firebase Firestore: For storing and managing user trip data.
-- Firebase Authentication: For handling user authentication via Google OAuth.
+**Backend & Services:**
+- Groq LLaMA API — AI-powered itinerary generation
+- Firebase Firestore — trip data storage
+- Firebase Authentication — Google OAuth login
+- Nominatim API — location search (OpenStreetMap)
+- Google Maps — hotel & place links
 
-<br><h2 id="features">🚀 Features</h2>
+<br>
 
-- AI-Powered Travel Plans: Generate personalized travel itineraries and hotel recommendations using Google Generative AI.
-- Dynamic Place Information: Retrieve and display detailed information and photos of places and hotels using Google Places API.
-- User Authentication: Secure user login and authentication with Google OAuth.
-- Interactive UI: User-friendly and responsive interface designed with TailwindCSS.
-- Data Storage: Persistent storage of user trip data in Firebase Firestore.
-- Travel Itineraries: Detailed daily travel plans including attractions, timings, and ticket pricing.
+<h2 id="features">Features</h2>
 
- 
+- AI-generated travel itineraries tailored to budget, duration, and group type
+- Hotel recommendations with ratings and pricing
+- Day-by-day place suggestions with timings and ticket info
+- Google OAuth authentication
+- Save and revisit past trips
+- Responsive UI with smooth animations
 
-<h2 id="pre">🗁 Prerequisites</h2>
+<br>
+
+<h2 id="pre">Prerequisites</h2>
 
 - Node.js & npm
-- Firebase Project: Set up a Firebase project and configure Firestore and Authentication. Obtain your Firebase configuration keys.
-- Google API Keys: Obtain API keys for Google Generative AI and Google Places API.
+- Firebase project with Firestore and Authentication enabled
+- Groq API key (get one at [console.groq.com](https://console.groq.com))
+
+<br>
+
+<h2 id="setup">Setup</h2>
+
+1. Clone the repo and install dependencies:
+```bash
+npm install
+```
+
+2. Create a `.env.local` file in the root:
+```env
+VITE_GROK_API_KEY=your_groq_api_key
+
+VITE_FIREBASE_API_KEY=your_firebase_api_key
+VITE_FIREBASE_AUTH_DOMAIN=your_project.firebaseapp.com
+VITE_FIREBASE_PROJECT_ID=your_project_id
+VITE_FIREBASE_STORAGE_BUCKET=your_project.firebasestorage.app
+VITE_FIREBASE_MESSAGING_SENDER_ID=your_sender_id
+VITE_FIREBASE_APP_ID=your_app_id
+VITE_FIREBASE_MEASUREMENT_ID=your_measurement_id
+```
+
+3. Run locally:
+```bash
+npm run dev
+```
+
+4. Build for production:
+```bash
+npm run build
+```
+
+5. Deploy to Firebase:
+```bash
+firebase deploy
+```

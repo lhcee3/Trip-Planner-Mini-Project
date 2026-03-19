@@ -24,46 +24,100 @@
     --input: 0 0% 89.8%;
     --ring: 0 0% 3.9%;
     --radius: 0.5rem;
-    --chart-1: 12 76% 61%;
-    --chart-2: 173 58% 39%;
-    --chart-3: 197 37% 24%;
-    --chart-4: 43 74% 66%;
-    --chart-5: 27 87% 67%;
   }
 
-  .dark {
-    --background: 0 0% 3.9%;
-    --foreground: 0 0% 98%;
-    --card: 0 0% 3.9%;
-    --card-foreground: 0 0% 98%;
-    --popover: 0 0% 3.9%;
-    --popover-foreground: 0 0% 98%;
-    --primary: 0 0% 98%;
-    --primary-foreground: 0 0% 9%;
-    --secondary: 0 0% 14.9%;
-    --secondary-foreground: 0 0% 98%;
-    --muted: 0 0% 14.9%;
-    --muted-foreground: 0 0% 63.9%;
-    --accent: 0 0% 14.9%;
-    --accent-foreground: 0 0% 98%;
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 0 0% 98%;
-    --border: 0 0% 14.9%;
-    --input: 0 0% 14.9%;
-    --ring: 0 0% 83.1%;
-    --chart-1: 220 70% 50%;
-    --chart-2: 160 60% 45%;
-    --chart-3: 30 80% 55%;
-    --chart-4: 280 65% 60%;
-    --chart-5: 340 75% 55%;
-  }
+  * { @apply border-border; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { @apply bg-background text-foreground; }
+  a, button { cursor: pointer; transition: all 0.2s ease; }
 }
 
-@layer base {
-  * {
-    @apply border-border;
-  }
-  body {
-    @apply bg-background text-foreground;
-  }
+/* ── Blob drift ── */
+@keyframes blob-drift {
+  0%   { transform: translate(0, 0) scale(1); }
+  33%  { transform: translate(40px, -30px) scale(1.05); }
+  66%  { transform: translate(-20px, 20px) scale(0.97); }
+  100% { transform: translate(0, 0) scale(1); }
 }
+.blob { animation: blob-drift 14s ease-in-out infinite; }
+.blob-delay { animation-delay: 6s; }
+
+/* ── Shimmer sweep on CTA button ── */
+@keyframes shimmer {
+  0%   { transform: translateX(-100%) skewX(-15deg); }
+  100% { transform: translateX(250%) skewX(-15deg); }
+}
+.btn-shimmer { position: relative; overflow: hidden; }
+.btn-shimmer::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.25) 50%, transparent 100%);
+  transform: translateX(-100%) skewX(-15deg);
+}
+.btn-shimmer:hover::after { animation: shimmer 0.6s ease forwards; }
+
+/* ── Staggered fade-in slide-up ── */
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(18px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.fade-up { opacity: 0; animation: fade-up 0.55s ease forwards; }
+.delay-0  { animation-delay: 0ms; }
+.delay-1  { animation-delay: 100ms; }
+.delay-2  { animation-delay: 200ms; }
+.delay-3  { animation-delay: 300ms; }
+.delay-4  { animation-delay: 400ms; }
+.delay-5  { animation-delay: 500ms; }
+.delay-6  { animation-delay: 600ms; }
+
+/* ── Navbar animated underline ── */
+.nav-link { position: relative; }
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -2px; left: 0;
+  width: 0; height: 1.5px;
+  background: #6C47FF;
+  transition: width 0.2s ease;
+}
+.nav-link:hover::after { width: 100%; }
+
+/* ── Gradient text ── */
+.gradient-text {
+  background: linear-gradient(135deg, #9ca3af 0%, #d1d5db 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ── Eyebrow lines ── */
+.eyebrow-line {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.eyebrow-line::before,
+.eyebrow-line::after {
+  content: '';
+  display: block;
+  width: 40px;
+  height: 1px;
+  background: #d1d5db;
+}
+
+/* ── Features strip gradient border ── */
+.features-border-top {
+  border-top: 1px solid transparent;
+  background-image: linear-gradient(white, white), linear-gradient(to right, #6C47FF, #3B82F6);
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+}
+
+/* ── Destination card gradients ── */
+.dest-bali      { background: linear-gradient(135deg, #134e5e, #71b280); }
+.dest-paris     { background: linear-gradient(135deg, #373b44, #4286f4); }
+.dest-tokyo     { background: linear-gradient(135deg, #c94b4b, #4b134f); }
+.dest-newyork   { background: linear-gradient(135deg, #1a1a2e, #16213e); }
+.dest-dubai     { background: linear-gradient(135deg, #b8860b, #8b4513); }
+.dest-santorini { background: linear-gradient(135deg, #1e3c72, #2a5298); }
