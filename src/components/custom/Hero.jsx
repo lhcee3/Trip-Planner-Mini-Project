@@ -93,7 +93,7 @@ export default function Hero() {
         {/* Floating nav */}
         <div className="absolute top-0 left-0 right-0 z-30 flex justify-between items-center px-5 md:px-20 py-4">
           <a href="/">
-            <img src="/logo.svg" alt="Logo" className="h-6 md:h-7 brightness-0 invert" />
+            <img src="/logo.svg" alt="Logo" className="h-16 md:h-24 brightness-0 invert drop-shadow-2xl" />
           </a>
           <div className="flex items-center gap-2 md:gap-4">
             <Link to="/my-trips" className="hidden sm:block text-sm text-white font-medium drop-shadow-[0_1px_3px_rgba(0,0,0,0.8)] hover:text-white/80 transition-colors">My Trips</Link>
@@ -217,7 +217,7 @@ export default function Hero() {
       <footer className="bg-[#0A0F1E] border-t border-white/5 px-5 pt-12 pb-6">
         <div className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-10 mb-10">
           <div className="flex flex-col gap-2">
-            <img src="/logo.svg" alt="Logo" className="h-7 w-auto brightness-0 invert" />
+            <img src="/logo.svg" alt="Logo" className="h-16 w-auto brightness-0 invert drop-shadow-2xl" />
             <p className="text-xs text-gray-500 mt-1">AI-powered travel planning</p>
           </div>
           <div className="flex flex-col gap-2">

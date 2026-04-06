@@ -60,7 +60,7 @@ function Header() {
         boxShadow: '0 1px 0 rgba(0,0,0,0.06)',
       }}>
       <a href="/">
-        <img src="/logo.svg" alt="Logo" className="h-8" />
+        <img src="/logo.svg" alt="Logo" className="h-12 md:h-16 drop-shadow-lg" />
       </a>
       <div>
         {user ? (
